@@ -154,6 +154,7 @@ const Lightning = ({ hue = 230, xOffset = 0, speed = 1, intensity = 1, size = 1 
     const uIntensityLocation = gl.getUniformLocation(program, 'uIntensity');
     const uSizeLocation = gl.getUniformLocation(program, 'uSize');
 
+    let animationFrameId;
     const startTime = performance.now();
     const render = () => {
       resizeCanvas();
@@ -167,12 +168,23 @@ const Lightning = ({ hue = 230, xOffset = 0, speed = 1, intensity = 1, size = 1 
       gl.uniform1f(uIntensityLocation, intensity);
       gl.uniform1f(uSizeLocation, size);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
-      requestAnimationFrame(render);
+      animationFrameId = requestAnimationFrame(render);
     };
-    requestAnimationFrame(render);
+    animationFrameId = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+      
+      // Explicitly delete shaders and loose webGL context to prevent context limits
+      gl.deleteShader(vertexShader);
+      gl.deleteShader(fragmentShader);
+      gl.deleteProgram(program);
+      gl.deleteBuffer(vertexBuffer);
+      const loseContextExt = gl.getExtension('WEBGL_lose_context');
+      if (loseContextExt) {
+        loseContextExt.loseContext();
+      }
     };
   }, [hue, xOffset, speed, intensity, size]);
 

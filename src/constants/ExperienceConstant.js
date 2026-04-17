@@ -2,7 +2,7 @@ export const experiences = [
   {
     title: "SDE Intern",
     company: "Metafic",
-    companyColor: "#a259f7 ",
+    companyColor: "#a259f7",
     date: "April 2025 - June 2025",
     location: "On Site",
     github: null,
@@ -14,9 +14,9 @@ export const experiences = [
     tech: ["React.js", "Node.js", "MongoDB", "Express.js"],
   },
   {
-    title: "Full Stak Developer Intern",
+    title: "Full Stack Developer Intern",
     company: "Astraeus Next Gen",
-    companyColor: "#a259f7 ",
+    companyColor: "#a259f7",
     date: "Jan 2025 - May 2025",
     location: "Remote",
     github: null,
@@ -30,7 +30,7 @@ export const experiences = [
   {
     title: "Frontend Developer",
     company: "WebExcep",
-    companyColor: "#a259f7 ",
+    companyColor: "#a259f7",
     date: "Jan 2025 - Feb 2025",
     location: "Remote",
     github: null,
@@ -41,4 +41,19 @@ export const experiences = [
     ],
     tech: ["React.js", "Tailwind CSS", "REST API"],
   },
+];
+
+export const MOTIVATIONAL_QUOTES = [
+  {
+    text: "CONSISTENCY BEATS TALENT WHEN TALENT STOPS CODING.",
+    accent: "#5227FF"
+  },
+  {
+    text: "SMALL COMMITS TODAY BUILD BIG SYSTEMS TOMORROW.",
+    accent: "#B497CF"
+  },
+  {
+    text: "BUILD IT. BREAK IT. FIX IT. THAT’S THE PROCESS.",
+    accent: "#5227FF"
+  }
 ];

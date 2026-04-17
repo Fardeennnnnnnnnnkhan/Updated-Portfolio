@@ -45,7 +45,7 @@ export default function Header() {
 
           {/* Pill Navbar Centered (hidden on mobile) */}
           <div className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <nav className="backdrop-blur-md bg-[#1a0036]/80 border border-[#a259f7]/30 rounded-full px-8 py-2 shadow-lg flex items-center gap-6">
+            <nav className="backdrop-blur-md bg-[#0A0B1B]/80 border border-[#a259f7]/30 rounded-full px-8 py-2 shadow-lg flex items-center gap-6">
               {navLinks.map((link) => (
                 <a
                   key={link.to}

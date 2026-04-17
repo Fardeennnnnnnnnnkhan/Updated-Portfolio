@@ -4,40 +4,37 @@ import React from "react";
 import BlurText from "../components/BlurText/BlurText";
 import SpotlightCard from "../components/SpotlightCard/SpotlightCard";
 import { motion } from "framer-motion";
+import { ABOUT_TEXT, RELEVANT_COURSEWORK } from "../constants/AboutConstant";
 
 export default function About() {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center px-2 sm:px-4 md:px-8 py-16 overflow-hidden">
-      {/* Lanyard container: relative on mobile, absolute at extreme top-right on desktop */}
       <div className="relative sm:absolute sm:top-0 sm:right-0 w-full sm:w-[400px] lg:w-[500px] xl:w-[600px] h-[350px] sm:h-[600px] lg:h-[800px] z-20 pointer-events-auto filter drop-shadow-[0_0_25px_rgba(162,89,247,0.15)] flex justify-center sm:justify-end">
         <Lanyard />
       </div>
 
       <div className="relative z-10 w-full flex flex-col items-center">
         <h2 className="text-2xl sm:text-5xl font-mono font-light text-white text-center mb-4 mt-8 md:mt-0">
-        <GlitchText
-  speed={1.5}
-  enableShadows
-  enableOnHover={false}
-  className='custom-class text-md'
->
-  About Me
-</GlitchText>
+          <GlitchText
+            speed={1.5}
+            enableShadows
+            enableOnHover={false}
+            className='custom-class text-md'
+          >
+            About Me
+          </GlitchText>
         </h2>
         <div className="max-w-4xl text-center mx-auto mb-12 mt-4 px-4 sm:px-0">
           <BlurText 
-            text="I'm a passionate Computer Science Engineering student with a strong foundation in full-stack development. Currently diving into Machine Learning, Data Science and Analytics, I’m driven to explore the broader field of AI and build smart, scalable solutions that solve real-world problems." 
+            text={ABOUT_TEXT}
             delay={30} 
             className="text-gray-300 font-mono text-lg leading-relaxed"
           />
         </div>
       </div>
 
-      {/* Main Content Grid (Restored) */}
       <div className="relative z-10 w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-        {/* Left: My Journey & Stats */}
         <div>
-            {/* My Journey */}
             <SpotlightCard className="p-6 mb-6 h-auto" spotlightColor="rgba(162, 89, 247, 0.2)">
               <div className="flex items-center gap-2 mb-4">
                 <span
@@ -69,7 +66,6 @@ export default function About() {
               </div>
             </SpotlightCard>
             
-            {/* Stats Cards */}
             <div className="flex gap-6 flex-wrap">
               <SpotlightCard className="p-6 text-center min-w-[140px] flex-1" spotlightColor="rgba(162, 89, 247, 0.25)">
                 <h3 className="text-3xl font-bold text-white">9.48/10</h3>
@@ -81,7 +77,6 @@ export default function About() {
               </SpotlightCard>
             </div>
           </div>
-        {/* Right: Education Card */}
         <SpotlightCard className="p-8 max-w-xl mx-auto w-full mt-10 md:mt-0 h-full" spotlightColor="rgba(162, 89, 247, 0.2)">
           <h2 className="text-white text-xl font-semibold flex items-center gap-2">
             <span
@@ -118,15 +113,7 @@ export default function About() {
               Relevant Coursework
             </h3>
             <div className="flex flex-wrap gap-2.5 mt-4">
-              {[
-                "Data Structures & Algorithms",
-                "Operating Systems",
-                "Machine Learning",
-                "Database Management",
-                "Web Technologies",
-                "Computer Networks",
-                "Object Oriented Programming"
-              ].map((course, i) => (
+              {RELEVANT_COURSEWORK.map((course, i) => (
                 <motion.span 
                   key={i}
                   whileHover={{ scale: 1.05, backgroundColor: "rgba(162, 89, 247, 0.2)" }}

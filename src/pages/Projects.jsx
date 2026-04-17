@@ -2,10 +2,10 @@ import GlitchText from "../components/GlitchText/GlitchText";
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { projects } from "../constants/ProjectConstant";
 
 gsap.registerPlugin(ScrollTrigger);
 
-import { projects } from "../constants/ProjectConstant";
 function ProjectCarousel({ images }) {
   const [current, setCurrent] = useState(0);
   if (!images || images.length === 0) return null;
@@ -60,14 +60,12 @@ export default function Projects() {
     let mm = gsap.matchMedia();
 
     const setupAnimations = (isMobile) => {
-      // Scale Down previous card as the next card covers it seamlessly
       cardsRef.current.forEach((card, idx) => {
         if (!card) return;
 
         if (idx > 0) {
           const prevCard = cardsRef.current[idx - 1];
           if (prevCard) {
-            // Target the inner visual card to ensure the wrapper height stays exactly 100vh
             const prevInner = prevCard.querySelector('.project-card');
             if (prevInner) {
               gsap.to(prevInner, {
@@ -75,8 +73,8 @@ export default function Projects() {
                 opacity: isMobile ? 0.6 : 0.3,
                 scrollTrigger: {
                   trigger: card,
-                  start: "top 100%", // Start animating when the current card begins rising from the bottom
-                  end: "top 0%", // Finish exactly when the current card covers the screen
+                  start: "top 100%", 
+                  end: "top 0%", 
                   scrub: true,
                 },
                 ease: "none",
@@ -86,29 +84,27 @@ export default function Projects() {
         }
       });
 
-      // Master Snap Controller that divides the uniform 100vh scroll paths accurately
       ScrollTrigger.create({
         trigger: containerRef.current,
-        start: "top top", // When the very first card hits the top of the viewport
-        end: "bottom bottom", // When the final card covers the screen
+        start: "top top", 
+        end: "bottom bottom", 
         snap: {
           snapTo: 1 / (projects.length - 1),
           duration: { min: 0.2, max: 0.5 },
-          delay: 0.05, // Instant aggressive snapping
+          delay: 0.05, 
           ease: "power2.inOut"
         }
       });
     };
 
-    mm.add("(min-width: 768px)", () => setupAnimations(false)); // Desktop
-    mm.add("(max-width: 767px)", () => setupAnimations(true)); // Mobile
+    mm.add("(min-width: 768px)", () => setupAnimations(false)); 
+    mm.add("(max-width: 767px)", () => setupAnimations(true)); 
 
-    return () => mm.revert(); // Cleanup ScrollTriggers on unmount
+    return () => mm.revert(); 
   }, []);
 
   return (
     <section className="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] flex flex-col items-center">
-      {/* Header section (Scrolls normally before sticking starts) */}
       <div className="w-full flex flex-col items-center justify-center py-24 px-4">
         <h2 className="text-4xl sm:text-5xl font-extrabold text-white text-center mb-6">
           <GlitchText
@@ -126,7 +122,6 @@ export default function Projects() {
         </p>
       </div>
 
-      {/* Core Full-Screen Card Stack Container */}
       <div 
         ref={containerRef}
         className="w-full flex flex-col relative"
@@ -137,13 +132,11 @@ export default function Projects() {
             ref={(el) => (cardsRef.current[idx] = el)}
             className="sticky top-0 w-[100vw] h-[100vh] flex flex-col justify-center items-center overflow-hidden"
             style={{
-              zIndex: idx, // Forces the natural overlap layering
+              zIndex: idx, 
             }}
           >
-            {/* The actual premium glassmorphism project card */}
             <div className="project-card w-full max-w-5xl md:max-w-6xl bg-[#160f27]/70 backdrop-blur-2xl border border-[#a259f7]/20 rounded-[2.5rem] p-6 lg:p-12 shadow-2xl transition-all duration-300 mx-4 flex flex-col justify-center">
               
-              {/* Project Header */}
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
                 <div className="flex items-center gap-3">
                   <h3 className="text-3xl font-bold text-white leading-tight">
@@ -160,10 +153,8 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Project Image Carousel */}
               <ProjectCarousel images={project.images} />
 
-              {/* Project Description */}
               <div className="mb-4">
                 <p className="text-xl text-gray-200 font-semibold mb-3">
                   {project.description}
@@ -175,7 +166,6 @@ export default function Projects() {
 
               <hr className="border-t border-[#232323] my-6" />
 
-              {/* Technologies Used */}
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-3">
                   <span
@@ -200,7 +190,6 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* View Code Button */}
               <div>
                 {project.link && (
                   <a
