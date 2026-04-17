@@ -1,127 +1,155 @@
+import GlitchText from "../components/GlitchText/GlitchText";
+import Lanyard from "../components/LanYard/Lanyard";
 import React from "react";
+import BlurText from "../components/BlurText/BlurText";
+import SpotlightCard from "../components/SpotlightCard/SpotlightCard";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section className="w-full min-h-screen flex flex-col items-center justify-center px-2 sm:px-4 md:px-8 py-16">
-      {/* Section Title */}
-      <h2 className="text-4xl sm:text-5xl font-mono font-light text-white text-center mb-4">
-        About Me
-      </h2>
-      <p className="text-gray-300 font-mono text-lg max-w-4xl text-center mx-auto leading-relaxed mb-12">
-  I'm a passionate Computer Science Engineering student with a strong foundation in full-stack development. Currently diving into Machine Learning , Data Science and Analytics, I’m driven to explore the broader field of AI and build smart, scalable solutions that solve real-world problems.
-</p>
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center px-2 sm:px-4 md:px-8 py-16 overflow-hidden">
+      {/* Lanyard container: relative on mobile, absolute at extreme top-right on desktop */}
+      <div className="relative sm:absolute sm:top-0 sm:right-0 w-full sm:w-[400px] lg:w-[500px] xl:w-[600px] h-[350px] sm:h-[600px] lg:h-[800px] z-20 pointer-events-auto filter drop-shadow-[0_0_25px_rgba(162,89,247,0.15)] flex justify-center sm:justify-end">
+        <Lanyard />
+      </div>
 
-      {/* Main Content Grid */}
-      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+      <div className="relative z-10 w-full flex flex-col items-center">
+        <h2 className="text-2xl sm:text-5xl font-mono font-light text-white text-center mb-4 mt-8 md:mt-0">
+        <GlitchText
+  speed={1.5}
+  enableShadows
+  enableOnHover={false}
+  className='custom-class text-md'
+>
+  About Me
+</GlitchText>
+        </h2>
+        <div className="max-w-4xl text-center mx-auto mb-12 mt-4 px-4 sm:px-0">
+          <BlurText 
+            text="I'm a passionate Computer Science Engineering student with a strong foundation in full-stack development. Currently diving into Machine Learning, Data Science and Analytics, I’m driven to explore the broader field of AI and build smart, scalable solutions that solve real-world problems." 
+            delay={30} 
+            className="text-gray-300 font-mono text-lg leading-relaxed"
+          />
+        </div>
+      </div>
+
+      {/* Main Content Grid (Restored) */}
+      <div className="relative z-10 w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Left: My Journey & Stats */}
         <div>
-          {/* My Journey */}
-          <div className="mb-6">
-            <div className="flex items-center gap-2 mb-2">
-              <span
-                className="material-icons text-[26px]"
-                style={{ color: "#a259f7" }}
-              >
-                trending_up
-              </span>
-              <h3 className="text-2xl font-bold text-white">My Journey</h3>
-            </div>
-            <div className="text-gray-300 space-y-4 max-w-2xl">
-              <p>
-                Currently pursuing a{" "}
-                <strong>B.Tech in Computer Science and Engineering</strong> at
-                IPS Academy Institute of Engineering & Science, Indore. I'm in
-                my 3rd year with a CGPA of <strong>9.48/10</strong>. Over the
-                last 2 years, I’ve gained hands-on experience building
-                full-stack applications and scalable platforms through
-                internships and independent projects.
-              </p>
-              <p>
-                I’ve contributed to the development of secure admin panels,
-                real-time dashboards, and responsive user interfaces using the{" "}
-                <strong>MERN stack</strong>. My work spans diverse domains—from
-                AI-powered code review tools to grocery delivery platforms and
-                chat applications. I'm always eager to learn new technologies
-                and collaborate on projects that solve real-world challenges.
-              </p>
+            {/* My Journey */}
+            <SpotlightCard className="p-6 mb-6 h-auto" spotlightColor="rgba(162, 89, 247, 0.2)">
+              <div className="flex items-center gap-2 mb-4">
+                <span
+                  className="material-icons text-[26px]"
+                  style={{ color: "#a259f7" }}
+                >
+                  trending_up
+                </span>
+                <h3 className="text-2xl font-bold text-white">My Journey</h3>
+              </div>
+              <div className="text-gray-300 space-y-4 max-w-2xl leading-relaxed">
+                <p>
+                  Currently pursuing a{" "}
+                  <strong className="text-white">B.Tech in Computer Science and Engineering</strong> at
+                  IPS Academy Institute of Engineering & Science, Indore. I'm in
+                  my 3rd year with a CGPA of <strong className="text-white">9.48/10</strong>. Over the
+                  last 2 years, I’ve gained hands-on experience building
+                  full-stack applications and scalable platforms through
+                  internships and independent projects.
+                </p>
+                <p>
+                  I’ve contributed to the development of secure admin panels,
+                  real-time dashboards, and responsive user interfaces using the{" "}
+                  <strong className="text-white">MERN stack</strong>. My work spans diverse domains—from
+                  AI-powered code review tools to grocery delivery platforms and
+                  chat applications. I'm always eager to learn new technologies
+                  and collaborate on projects that solve real-world challenges.
+                </p>
+              </div>
+            </SpotlightCard>
+            
+            {/* Stats Cards */}
+            <div className="flex gap-6 flex-wrap">
+              <SpotlightCard className="p-6 text-center min-w-[140px] flex-1" spotlightColor="rgba(162, 89, 247, 0.25)">
+                <h3 className="text-3xl font-bold text-white">9.48/10</h3>
+                <p className="text-[#a259f7] mt-1 font-medium">Current SGPA</p>
+              </SpotlightCard>
+              <SpotlightCard className="p-6 text-center min-w-[140px] flex-1" spotlightColor="rgba(162, 89, 247, 0.25)">
+                <h3 className="text-3xl font-bold text-white">2+ Years</h3>
+                <p className="text-[#a259f7] mt-1 font-medium">Experience</p>
+              </SpotlightCard>
             </div>
           </div>
-          {/* Stats Cards */}
-          <div className="flex gap-8 mt-6 flex-wrap">
-            <div className="bg-transparent border border-[#a259f7]/30 rounded-lg px-6 py-4 text-center min-w-[140px] flex-1">
-              <h3 className="text-3xl font-bold text-white">9.48/10</h3>
-              <p className="text-gray-400 mt-1">Current SGPA</p>
-            </div>
-            <div className="bg-transparent border border-[#a259f7]/30 rounded-lg px-6 py-4 text-center min-w-[140px] flex-1">
-              <h3 className="text-3xl font-bold text-white">2+ Years</h3>
-              <p className="text-gray-400 mt-1">Experience</p>
-            </div>
-          </div>
-        </div>
         {/* Right: Education Card */}
-        <div className="bg-transparent border border-[#a259f7]/30 rounded-xl p-6 shadow-lg max-w-xl mx-auto w-full mt-10 md:mt-0">
+        <SpotlightCard className="p-8 max-w-xl mx-auto w-full mt-10 md:mt-0 h-full" spotlightColor="rgba(162, 89, 247, 0.2)">
           <h2 className="text-white text-xl font-semibold flex items-center gap-2">
             <span
-              className="material-icons text-[22px]"
+              className="material-icons text-[26px]"
               style={{ color: "#a259f7" }}
             >
               school
             </span>{" "}
             Education
           </h2>
-          <p className="mt-2 text-lg font-bold text-white">
-            B.Tech in Computer Science and Engineering
-          </p>
-          <p className="text-gray-400">
-            IPS Academy Institute of Engineering & Science, Indore
-          </p>
-          <p className="text-sm text-gray-500 mt-1">
-            Aug 2021 – July 2027 | Current SGPA: 9.48/10
-          </p>
-
-          <h3 className="text-white mt-4 font-medium flex items-center gap-2">
-            <span
-              className="material-icons text-[20px]"
-              style={{ color: "#a259f7" }}
-            >
-              menu_book
-            </span>{" "}
-            Relevant Coursework:
-          </h3>
-          <div className="flex flex-wrap gap-2 mt-2 text-sm">
-            <span className="bg-gray-900 px-3 py-1 rounded-full text-gray-300">
-              Data Structures & Algorithms
-            </span>
-            <span className="bg-gray-900 px-3 py-1 rounded-full text-gray-300">
-              Operating Systems
-            </span>
-            <span className="bg-gray-900 px-3 py-1 rounded-full text-gray-300">
-              Machine Learning
-            </span>
-            <span className="bg-gray-900 px-3 py-1 rounded-full text-gray-300">
-              Database Management
-            </span>
-            <span className="bg-gray-900 px-3 py-1 rounded-full text-gray-300">
-              Web Technologies
-            </span>
-            <span className="bg-gray-900 px-3 py-1 rounded-full text-gray-300">
-              Computer Networks
-            </span>
-            <span className="bg-gray-900 px-3 py-1 rounded-full text-gray-300">
-              Object Oriented Programming
-            </span>
+          
+          <div className="mt-6">
+            <p className="text-xl font-bold text-white">
+              B.Tech in Computer Science and Engineering
+            </p>
+            <p className="text-gray-300 mt-1">
+              IPS Academy Institute of Engineering & Science, Indore
+            </p>
+            <div className="inline-block bg-[#a259f7]/10 border border-[#a259f7]/20 rounded-md px-3 py-1.5 mt-3">
+              <p className="text-sm text-[#dfd9ff] font-medium">
+                Aug 2023 – July 2027 | SGPA: 9.48/10
+              </p>
+            </div>
           </div>
 
-          <p className="mt-4 text-sm text-gray-500 flex items-center gap-2">
-            <span
-              className="material-icons text-[20px]"
-              style={{ color: "#a259f7" }}
-            >
-              location_on
-            </span>{" "}
-            Indore, Madhya Pradesh, India
-          </p>
-        </div>
+          <div className="mt-8">
+            <h3 className="text-white font-medium flex items-center gap-2 text-lg">
+              <span
+                className="material-icons text-[22px]"
+                style={{ color: "#a259f7" }}
+              >
+                menu_book
+              </span>{" "}
+              Relevant Coursework
+            </h3>
+            <div className="flex flex-wrap gap-2.5 mt-4">
+              {[
+                "Data Structures & Algorithms",
+                "Operating Systems",
+                "Machine Learning",
+                "Database Management",
+                "Web Technologies",
+                "Computer Networks",
+                "Object Oriented Programming"
+              ].map((course, i) => (
+                <motion.span 
+                  key={i}
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(162, 89, 247, 0.2)" }}
+                  className="bg-gray-800/60 border border-gray-700 px-4 py-1.5 rounded-full text-sm text-gray-200 cursor-default transition-colors"
+                >
+                  {course}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-gray-800">
+            <p className="text-sm text-gray-400 flex items-center gap-2">
+              <span
+                className="material-icons text-[20px]"
+                style={{ color: "#a259f7" }}
+              >
+                location_on
+              </span>{" "}
+              Indore, Madhya Pradesh, India
+            </p>
+          </div>
+        </SpotlightCard>
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+import GlitchText from "../components/GlitchText/GlitchText";
 import React from "react";
 import {
   FaCode,
@@ -184,7 +185,14 @@ export default function Skills() {
 
     <section className="max-w-7xl mx-auto px-4 py-12 relative">
       <h2 className="text-4xl font-bold mb-2 text-center text-white">
-        Skills & Abilities
+             <GlitchText
+          speed={1}
+          enableShadows
+          enableOnHover={false}
+          className='custom-class'
+        >
+          Skills & Abilities
+        </GlitchText>
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
         {skillGroups.map((group) => (

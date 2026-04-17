@@ -1,92 +1,27 @@
-import React, { useState } from "react";
-const projects = [
-  {
-    title: "CodeCureAI",
-    date: "2024",
-    featured: true,
-    description:
-      "Developed a full-stack web application that leverages Google Gemini Pro (Gemini 2.5 Flash) to provide real-time AI-based code reviews. Users can input or upload code, and the system generates insightful feedback, highlights issues, and suggests improvements.",
-    details:
-      "Built using React (Vite) for the frontend and Node.js with Express for the backend, with Tailwind CSS for styling and Render for deployment.",
-    tech: [
-      "React (Vite)",
-      "Node.js",
-      "Express.js",
-      "Tailwind CSS",
-      "Gemini Pro",
-      "Render",
-    ],
-    link: "https://github.com/Fardeennnnnnnnnnkhan/Code_Reviewer-Frontend",
-    images: ['/CodeCure1.png','/CC2.png','/CC3.png','/CC4.png','/CC5.png'],
-  }, 
-  {
-    title: "StrangerSync (Anonymous Chat Application)",
-    date: "Dec 2024",
-    featured: false,
-    description:
-      "A full-stack web application enabling real-time, anonymous video and text chat between users. Inspired by Omegle but built with a custom vision.",
-    details:
-      "StrangerSync uses Node.js, Express, and Socket.io to deliver seamless WebSocket communication. The backend efficiently manages user sessions, pairing logic, and secure peer-to-peer connections, ensuring high availability and scalability.",
-    tech: ["Node.js", "Express.js", "Socket.io", "WebRTC"],
-    link: "https://github.com/Fardeennnnnnnnnnkhan/StrangerSync",
-    images: [],
-  },
-  {
-    title: "EaseLearn (E-Learning Platform)",
-    date: "Jan 2025",
-    featured: false,
-    description:
-      "EaseLearn is a full-stack e-learning platform built with Node.js, Express, and MongoDB, focused on delivering a smooth learning experience through modular backend architecture.",
-    details:
-      "I developed a robust backend system supporting secure user authentication, course management, and an admin dashboard for course creation, editing, and user handling.",
-    tech: ["Node.js", "Express.js", "MongoDB", "JWT"],
-    link: "https://github.com/Fardeennnnnnnnnnkhan/EaseLearn_FinalSetup",
-    images: [],
-  },
-  {
-    title: "F-Mart (E-commerce Website)",
-    date: "March 2025",
-    featured: false,
-    description:
-      "Designed and implemented the backend for a full-featured e-commerce platform using Node.js, Express, and MongoDB. The system includes product management, user authentication, cart handling, and a secure checkout process with payment gateway integration.",
-    details:
-      "Built RESTful APIs for managing orders, user data, and product listings, ensuring fast and reliable communication between the frontend and backend.",
-    tech: ["Node.js", "Express.js", "MongoDB", "JWT", "Payment Gateway"],
-    link: "https://github.com/Fardeennnnnnnnnnkhan/F-Mart---An-E-Commerce-Shopping-App",
-    images: [],
-  },
-  {
-    title: "GroceryNow (Grocery Delivery App)",
-    date: "Feb 2025",
-    featured: false,
-    description:
-      "A backend system powering a real-time grocery delivery experience, inspired by Blinkit and tailored for modern logistics.",
-    details:
-      "Built using Node.js, Express, and MongoDB, GroceryNow includes modules for user authentication, order processing, inventory tracking, and delivery scheduling.",
-    tech: ["Node.js", "Express.js", "MongoDB", "JWT"],
-    link: "https://github.com/Fardeennnnnnnnnnkhan/GroceryNow",
-    images: [],
-  },
+import GlitchText from "../components/GlitchText/GlitchText";
+import React, { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
- 
-];
+gsap.registerPlugin(ScrollTrigger);
 
+import { projects } from "../constants/ProjectConstant";
 function ProjectCarousel({ images }) {
   const [current, setCurrent] = useState(0);
   if (!images || images.length === 0) return null;
   const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
   return (
-    <div className="relative w-full rounded-lg overflow-hidden mb-4 group">
+    <div className="relative w-full rounded-2xl overflow-hidden mb-6 group shrink-0">
       <img
         src={images[current]}
         alt={`Project screenshot ${current + 1}`}
-        className="w-full h-96 object-cover object-top transition-all duration-500"
+        className="w-full h-96 md:h-[400px] object-cover object-top transition-all duration-500"
       />
       {images.length > 1 && (
         <>
           <button
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#232323]/80 hover:bg-[#a259f7] text-white rounded-full p-2 shadow transition-all duration-200 opacity-80 group-hover:opacity-100"
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#160f27]/80 hover:bg-[#a259f7] text-white rounded-full p-2 shadow-lg transition-all duration-200 opacity-80 group-hover:opacity-100 backdrop-blur-md"
             onClick={prev}
             aria-label="Previous image"
             type="button"
@@ -94,19 +29,19 @@ function ProjectCarousel({ images }) {
             <span className="material-icons">chevron_left</span>
           </button>
           <button
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#232323]/80 hover:bg-[#a259f7] text-white rounded-full p-2 shadow transition-all duration-200 opacity-80 group-hover:opacity-100"
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#160f27]/80 hover:bg-[#a259f7] text-white rounded-full p-2 shadow-lg transition-all duration-200 opacity-80 group-hover:opacity-100 backdrop-blur-md"
             onClick={next}
             aria-label="Next image"
             type="button"
           >
             <span className="material-icons">chevron_right</span>
           </button>
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 p-1.5 rounded-full bg-black/40 backdrop-blur-sm">
             {images.map((_, i) => (
               <span
                 key={i}
-                className={`inline-block w-2 h-2 rounded-full ${
-                  i === current ? "bg-[#a259f7]" : "bg-gray-500/40"
+                className={`inline-block w-2 h-2 rounded-full transition-colors duration-300 ${
+                  i === current ? "bg-[#a259f7]" : "bg-white/40"
                 }`}
               />
             ))}
@@ -118,86 +53,172 @@ function ProjectCarousel({ images }) {
 }
 
 export default function Projects() {
+  const cardsRef = useRef([]);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    let mm = gsap.matchMedia();
+
+    const setupAnimations = (isMobile) => {
+      // Scale Down previous card as the next card covers it seamlessly
+      cardsRef.current.forEach((card, idx) => {
+        if (!card) return;
+
+        if (idx > 0) {
+          const prevCard = cardsRef.current[idx - 1];
+          if (prevCard) {
+            // Target the inner visual card to ensure the wrapper height stays exactly 100vh
+            const prevInner = prevCard.querySelector('.project-card');
+            if (prevInner) {
+              gsap.to(prevInner, {
+                scale: isMobile ? 0.95 : 0.90,
+                opacity: isMobile ? 0.6 : 0.3,
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 100%", // Start animating when the current card begins rising from the bottom
+                  end: "top 0%", // Finish exactly when the current card covers the screen
+                  scrub: true,
+                },
+                ease: "none",
+              });
+            }
+          }
+        }
+      });
+
+      // Master Snap Controller that divides the uniform 100vh scroll paths accurately
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top top", // When the very first card hits the top of the viewport
+        end: "bottom bottom", // When the final card covers the screen
+        snap: {
+          snapTo: 1 / (projects.length - 1),
+          duration: { min: 0.2, max: 0.5 },
+          delay: 0.05, // Instant aggressive snapping
+          ease: "power2.inOut"
+        }
+      });
+    };
+
+    mm.add("(min-width: 768px)", () => setupAnimations(false)); // Desktop
+    mm.add("(max-width: 767px)", () => setupAnimations(true)); // Mobile
+
+    return () => mm.revert(); // Cleanup ScrollTriggers on unmount
+  }, []);
+
   return (
-    <section className="w-full min-h-screen flex flex-col items-center justify-center px-2 sm:px-4 md:px-8 py-16 ">
-      <h2 className="text-4xl sm:text-5xl font-extrabold text-white text-center mb-2">
-        Featured Projects
-      </h2>
-      <p className="text-gray-400 text-lg max-w-2xl text-center mx-auto mb-8">
-        A showcase of my technical projects and innovations that solve
-        real-world problems
-      </p>
-      <div className="w-full max-w-5xl flex flex-col gap-12">
+    <section className="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] flex flex-col items-center">
+      {/* Header section (Scrolls normally before sticking starts) */}
+      <div className="w-full flex flex-col items-center justify-center py-24 px-4">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-white text-center mb-6">
+          <GlitchText
+            speed={1}
+            enableShadows
+            enableOnHover={false}
+            className="custom-class"
+          >
+            Featured Projects
+          </GlitchText>
+        </h2>
+        <p className="text-gray-400 text-lg max-w-2xl text-center">
+          A showcase of my technical projects and innovations that solve
+          real-world problems
+        </p>
+      </div>
+
+      {/* Core Full-Screen Card Stack Container */}
+      <div 
+        ref={containerRef}
+        className="w-full flex flex-col relative"
+      >
         {projects.map((project, idx) => (
           <div
             key={idx}
-            className="relative  border border-[#a259f7]/30 rounded-xl p-6 shadow-lg transition-all duration-200 hover:shadow-2xl hover:border-[#a259f7] group"
+            ref={(el) => (cardsRef.current[idx] = el)}
+            className="sticky top-0 w-[100vw] h-[100vh] flex flex-col justify-center items-center overflow-hidden"
+            style={{
+              zIndex: idx, // Forces the natural overlap layering
+            }}
           >
-            {/* Project Header */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
-              <div className="flex items-center gap-3">
-                <h3 className="text-2xl font-bold text-white leading-tight">
-                  {project.title}
-                </h3>
-                {project.featured && (
-                  <span className="flex items-center gap-1 bg-[#a259f7] text-white text-xs font-semibold px-3 py-1 rounded-full shadow hover:scale-105 transition-transform duration-200">
-                    <span className="material-icons text-base align-middle">
-                      star
-                    </span>{" "}
-                    Featured
+            {/* The actual premium glassmorphism project card */}
+            <div className="project-card w-full max-w-5xl md:max-w-6xl bg-[#160f27]/70 backdrop-blur-2xl border border-[#a259f7]/20 rounded-[2.5rem] p-6 lg:p-12 shadow-2xl transition-all duration-300 mx-4 flex flex-col justify-center">
+              
+              {/* Project Header */}
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
+                <div className="flex items-center gap-3">
+                  <h3 className="text-3xl font-bold text-white leading-tight">
+                    {project.title}
+                  </h3>
+                  {project.featured && (
+                    <span className="flex items-center gap-1 bg-[#a259f7] text-white text-xs font-semibold px-3 py-1 rounded-full shadow transition-transform duration-200">
+                      <span className="material-icons text-base align-middle">
+                        star
+                      </span>{" "}
+                      Featured
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Project Image Carousel */}
+              <ProjectCarousel images={project.images} />
+
+              {/* Project Description */}
+              <div className="mb-4">
+                <p className="text-xl text-gray-200 font-semibold mb-3">
+                  {project.description}
+                </p>
+                <p className="text-gray-400 text-base md:text-lg leading-relaxed">
+                  {project.details}
+                </p>
+              </div>
+
+              <hr className="border-t border-[#232323] my-6" />
+
+              {/* Technologies Used */}
+              <div className="mb-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <span
+                    className="material-icons text-base"
+                    style={{ color: "#a259f7" }}
+                  >
+                    fiber_manual_record
                   </span>
+                  <span className="font-semibold text-white tracking-wide">
+                    Technologies Used
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((t, i) => (
+                    <span
+                      key={i}
+                      className="bg-[#232323] text-gray-200 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium border border-[#232323] hover:bg-[#a259f7] hover:text-white transition-colors duration-200 cursor-pointer"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* View Code Button */}
+              <div>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#a259f7] hover:bg-[#8e9c78] text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md focus:outline-none hover:-translate-y-0.5 mt-2"
+                  >
+                    <span className="material-icons text-base">code</span> View
+                    Code
+                  </a>
                 )}
               </div>
-              <div className="flex items-center gap-4 mt-2 md:mt-0">
-               
-              </div>
             </div>
-            {/* Project Image Carousel (if available) */}
-            <ProjectCarousel images={project.images} />
-            {/* Project Description */}
-            <p className="text-lg text-gray-200 font-semibold mb-2">
-              {project.description}
-            </p>
-            <p className="text-gray-400 mb-4">{project.details}</p>
-            <hr className="border-t border-[#232323] my-4" />
-            {/* Technologies Used */}
-            <div className="mb-4">
-              <div className="flex items-center gap-2 mb-2">
-                <span
-                  className="material-icons text-base"
-                  style={{ color: "#a259f7" }}
-                >
-                  fiber_manual_record
-                </span>
-                <span className="font-semibold text-white">
-                  Technologies Used
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-2 mt-1">
-                {project.tech.map((t, i) => (
-                  <span
-                    key={i}
-                    className="bg-[#232323] text-gray-200 px-3 py-1 rounded-full text-xs font-medium border border-[#232323] hover:bg-[#a259f7] hover:text-white transition-colors duration-200 cursor-pointer"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-            {/* View Code Button */}
-            {project.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#a259f7] hover:bg-[#8e9c78] text-white font-semibold px-5 py-2 rounded-lg mt-2 transition-colors duration-200 shadow focus:outline-none focus:ring-2 focus:ring-[#a259f7] focus:ring-offset-2 hover:scale-105"
-              >
-                <span className="material-icons text-base">code</span> View Code
-              </a>
-            )}
           </div>
         ))}
       </div>
     </section>
   );
 }
+

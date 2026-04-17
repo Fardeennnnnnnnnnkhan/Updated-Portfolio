@@ -1,0 +1,18 @@
+.animate-curved-flow {
+    animation: curved-flow 2.5s linear infinite;
+}
+
+.animate-curved-flow-fast {
+    animation: curved-flow 1.5s linear infinite;
+}
+
+/* Move dash offset back to make it travel from end(right) to start(top) */
+@keyframes curved-flow {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -100;
+    }
+}
