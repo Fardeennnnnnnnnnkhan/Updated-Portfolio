@@ -1,11 +1,11 @@
-export const ABOUT_TEXT = "I'm a passionate Computer Science Engineering student with a strong foundation in full-stack development. Currently diving into Machine Learning, Data Science and Analytics, I’m driven to explore the broader field of AI and build smart, scalable solutions that solve real-world problems.";
+export const ABOUT_TEXT = "I’m a Computer Science Engineering student who thrives at the intersection of development and intelligence. With hands-on experience in full-stack development and a growing expertise in Machine Learning, Data Science, and Analytics, I focus on building scalable, user-centric applications that go beyond functionality. I’m deeply driven to explore AI and craft smart solutions that create real-world impact.";
 
 export const RELEVANT_COURSEWORK = [
-  "Data Structures & Algorithms",
-  "Operating Systems",
-  "Machine Learning",
-  "Database Management",
-  "Web Technologies",
-  "Computer Networks",
-  "Object Oriented Programming"
+  "Advanced Data Structures & Algorithms",
+  "Operating Systems & System Design",
+  "Machine Learning & Predictive Modeling",
+  "Database Systems & Query Optimization",
+  "Full-Stack Web Development",
+  "Computer Networks & Distributed Systems",
+  "Object-Oriented Programming & Design Patterns"
 ];

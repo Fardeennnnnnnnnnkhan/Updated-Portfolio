@@ -50,7 +50,7 @@ export default function About() {
                   Currently pursuing a{" "}
                   <strong className="text-white">B.Tech in Computer Science and Engineering</strong> at
                   IPS Academy Institute of Engineering & Science, Indore. I'm in
-                  my 3rd year with a CGPA of <strong className="text-white">9.48/10</strong>. Over the
+                  my 3rd year with a CGPA of <strong className="text-white">9.2/10</strong>. Over the
                   last 2 years, I’ve gained hands-on experience building
                   full-stack applications and scalable platforms through
                   internships and independent projects.
@@ -68,12 +68,12 @@ export default function About() {
             
             <div className="flex gap-6 flex-wrap">
               <SpotlightCard className="p-6 text-center min-w-[140px] flex-1" spotlightColor="rgba(162, 89, 247, 0.25)">
-                <h3 className="text-3xl font-bold text-white">9.48/10</h3>
+                <h3 className="text-3xl font-bold text-white">9.48</h3>
                 <p className="text-[#a259f7] mt-1 font-medium">Current SGPA</p>
               </SpotlightCard>
               <SpotlightCard className="p-6 text-center min-w-[140px] flex-1" spotlightColor="rgba(162, 89, 247, 0.25)">
-                <h3 className="text-3xl font-bold text-white">2+ Years</h3>
-                <p className="text-[#a259f7] mt-1 font-medium">Experience</p>
+                <h3 className="text-3xl font-bold text-white">Fresher</h3>
+                <p className="text-[#a259f7] mt-1 font-medium">(Open to Opputunities)</p>
               </SpotlightCard>
             </div>
           </div>

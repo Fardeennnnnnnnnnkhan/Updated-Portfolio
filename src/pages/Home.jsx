@@ -86,7 +86,7 @@ export default function Home() {
     return () => ctx.revert();
   }, []);
 
-  const titleWords = ["ELEVATING", "DIGITAL", "EXPERIENCES."];
+  const titleWords = ["ELEVATING", "DIGITAL INTO", "INTELLIGENT", "EXPERIENCES."];
 
   return (
  <section ref={containerRef} className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-24 pb-8 lg:pb-12 overflow-hidden rounded-[2rem] mt-4 mb-16 border border-white/5 shadow-2xl">
@@ -113,9 +113,9 @@ export default function Home() {
               <div key={i} className="overflow-hidden leading-[1.05] py-2">
                  <h1 
                    ref={el => textRefs.current[i] = el}
-                   className="text-white font-black text-[3.2rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[7.5rem] tracking-tighter uppercase drop-shadow-2xl"
+                   className="text-white font-black text-[4rem] sm:text-[4.5rem] md:text-[4rem] lg:text-[4rem] tracking-tighter uppercase drop-shadow-2xl"
                    style={
-                     i === 1 
+                     i === 2
                        ? {
                            WebkitTextFillColor: 'transparent',
                            WebkitTextStroke: '2px rgba(162, 89, 247, 0.9)',
@@ -132,20 +132,15 @@ export default function Home() {
         </div>
 
         <p ref={el => subElementsRef.current[1] = el} className="text-gray-400 text-sm md:text-base lg:text-xl font-light max-w-2xl leading-relaxed mb-12">
-          I design and build <strong className="text-white font-medium">high-performance web applications</strong> 
-          powered by modern technologies and intelligent systems. <br className="hidden md:block"/>
-          Specializing in <strong className="text-white font-medium">Full Stack Development</strong>, 
-          <strong className="text-white font-medium"> Machine Learning</strong>, and 
-          <strong className="text-white font-medium"> Generative AI</strong> — focused on creating scalable, 
-          efficient, and visually compelling digital products.
+          I design and build <strong className="text-white font-medium">high-performance web applications</strong> powered by modern technologies and <strong className="text-white font-medium">AI-driven systems</strong>—focused on scalability, efficiency, and seamless user experiences.
         </p>
 
         <div ref={el => subElementsRef.current[2] = el} className="flex flex-wrap items-center justify-center gap-6 w-full mb-12">
           <MagneticButton>
-            <a href="#projects" className="group relative inline-flex items-center justify-center px-8 md:px-10 py-4 md:py-5 bg-white text-black font-bold uppercase tracking-widest text-[10px] md:text-xs rounded-full overflow-hidden transition-transform shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(162,89,247,0.4)]">
+            <a href="https://drive.google.com/file/d/1Ad2tsxYAj0-v6T2BfUjir5FAoxtIH-yB/view" target="_blank" rel="noreferrer" className="group relative inline-flex items-center justify-center px-8 md:px-10 py-4 md:py-5 bg-white text-black font-bold uppercase tracking-widest text-[10px] md:text-xs rounded-full overflow-hidden transition-transform shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(162,89,247,0.4)]">
               <span className="absolute inset-0 bg-[#a259f7] translate-y-[100%] group-hover:translate-y-[0%] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] rounded-full" />
               <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center gap-3">
-                View My Work <FaArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                Download Resume<FaArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
               </span>
             </a>
           </MagneticButton>

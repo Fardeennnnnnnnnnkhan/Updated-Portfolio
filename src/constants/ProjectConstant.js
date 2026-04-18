@@ -1,7 +1,35 @@
+import CC1 from "../../public/ProjectImages/CC1.png"
+import CC2 from "../../public/ProjectImages/CC2.png"
+import CC3 from "../../public/ProjectImages/CC3.png"
+import CC4 from "../../public/ProjectImages/CC4.png"
+import CC5 from "../../public/ProjectImages/CC5.png"
+import CC6 from "../../public/ProjectImages/CC6.png"
+import CC7 from "../../public/ProjectImages/CC7.png"
+
+import CR1 from '../../public/ProjectImages/CR1.png'
+import CR2 from '../../public/ProjectImages/CR2.png'
+// import CR3 from '../../public/ProjectImages/CR3.png'
+import CR4 from '../../public/ProjectImages/CR4.png'
+import CR5 from '../../public/ProjectImages/CR5.png'
+import CR6 from '../../public/ProjectImages/CR6.png'
+import CR7 from '../../public/ProjectImages/CR7.png'
+import CR8 from '../../public/ProjectImages/CR8.png'
+import CR9 from '../../public/ProjectImages/CR9.png'
+import CR10 from '../../public/ProjectImages/CR10.png'
+import CR11 from '../../public/ProjectImages/CR11.png'
+import CR12 from '../../public/ProjectImages/CR12.png'
+import CR13 from '../../public/ProjectImages/CR13.png'
+
+import SS1 from '../../public/ProjectImages/SS1.png'
+import SS2 from '../../public/ProjectImages/SS2.png'
+// import SS3 from '../../public/ProjectImages/SS3.png'
+import SS4 from '../../public/ProjectImages/SS4.png'
+import SS5 from '../../public/ProjectImages/SS5.png'
+
 export const projects = [
   {
     title: "Cortexa (AI Interview Platform)",
-    date: "2024",
+    date: "2026",
     featured: true,
     description:
       "An immersive, data-driven AI-powered interview intelligence and career coaching platform. It merges advanced Generative AI with real-time vocal expression analysis to provide a realistic preparation experience.",
@@ -24,11 +52,11 @@ export const projects = [
     ],
     githubLink: "https://github.com/Fardeennnnnnnnnnkhan/Cortexa",
     liveLink: "https://cortexa-teal.vercel.app/",
-    images: [],
+    images: [CR1,CR2,CR4,CR5,CR6,CR7,CR8,CR9,CR10,CR11,CR12,CR13],
   },
   {
     title: "CodeCureAI",
-    date: "2024",
+    date: "2025",
     featured: true,
     description:
       "A cutting-edge full-stack web application that leverages Google Gemini Pro to provide real-time, highly intelligent AI-based code reviews and optimizations.",
@@ -51,11 +79,11 @@ export const projects = [
     ],
     githubLink: "https://github.com/Fardeennnnnnnnnnkhan/CodeCureAI",
     liveLink: "https://codecureai-by-fardeen.vercel.app/",
-    images: [],
+    images: [CC1 , CC2 , CC3 , CC4 , CC5 , CC6 , CC7],
   }, 
   {
     title: "StrangerSync (Anonymous Chat Application)",
-    date: "Dec 2024",
+    date: "Dec 2025",
     featured: true,
     description:
       "A premium, high-fidelity video chat protocol designed for instantaneous human connection, built with a strictly Zero Data Footprint policy for ultimate privacy.",
@@ -69,7 +97,7 @@ export const projects = [
     tech: ["React 19", "Node.js", "Express.js", "Socket.io", "WebRTC", "Framer Motion", "Tailwind CSS"],
     githubLink: "https://github.com/Fardeennnnnnnnnnkhan/StrangerSync",
     liveLink: "https://stranger-sync.vercel.app/",
-    images: [],
+    images: [SS1,SS2,SS4,SS5],
   },
   {
     title: "EaseLearn (E-Learning Platform)",
