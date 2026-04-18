@@ -157,7 +157,6 @@ export default function Home() {
         <div ref={el => subElementsRef.current[3] = el} className="flex items-center gap-8 text-gray-500">
            <a href="https://github.com/Fardeennnnnnnnnnkhan" target="_blank" rel="noreferrer" className="hover:text-white hover:-translate-y-1 transition-all"><FaGithub size={26} /></a>
            <a href="https://www.linkedin.com/in/fardeen-khan-077661290/" target="_blank" rel="noreferrer" className="hover:text-[#0077b5] hover:-translate-y-1 transition-all"><FaLinkedin size={26} /></a>
-           <a href="#" className="hover:text-[#1DA1F2] hover:-translate-y-1 transition-all"><FaTwitter size={26} /></a>
         </div>
 
       </div>
