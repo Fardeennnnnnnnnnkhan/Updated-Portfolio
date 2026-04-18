@@ -126,9 +126,9 @@ export default function Loader({ onComplete }) {
 
       {/* Sequential Splash Words */}
       <div style={styles.wordsContainer}>
-        <div ref={word1Ref} style={styles.introWord}>FULL STACK</div>
-        <div ref={word2Ref} style={styles.introWord}>ML</div>
-        <div ref={word3Ref} style={styles.introWord}>GEN AI</div>
+        <div ref={word1Ref} style={styles.introWord}>Designing Experiences…</div>
+        <div ref={word2Ref} style={styles.introWord}>Building Systems…</div>
+        <div ref={word3Ref} style={styles.introWord}>Integrating AI…</div>
       </div>
 
       <div style={styles.center} ref={textGroupRef}>
@@ -235,13 +235,11 @@ const styles = {
   },
   svgText: {
     fontSize: '200px',
-    fontWeight: 900,
     letterSpacing: '-6px',
     fill: '#ffffff',
   },
   ghostText: {
     fontSize: '200px',
-    fontWeight: 900,
     letterSpacing: '-6px',
     fill: 'none',
     stroke: 'rgba(255,255,255,0.08)',
@@ -259,7 +257,6 @@ const styles = {
   introWord: {
     position: 'absolute',
     fontSize: 'clamp(3rem, 8vw, 6rem)',
-    fontWeight: 900,
     color: '#ffffff',
     opacity: 0,
     textTransform: 'uppercase',

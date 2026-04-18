@@ -159,9 +159,17 @@ export default function Projects() {
                 <p className="text-xl text-gray-200 font-semibold mb-3">
                   {project.description}
                 </p>
-                <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-                  {project.details}
-                </p>
+                {Array.isArray(project.details) ? (
+                  <ul className="text-gray-400 text-base md:text-lg leading-relaxed list-outside pl-5 space-y-2">
+                    {project.details.map((point, i) => (
+                      <li key={i} className="list-disc pl-1 text-left">{point}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-gray-400 text-base md:text-lg leading-relaxed text-left">
+                    {project.details}
+                  </p>
+                )}
               </div>
 
               <hr className="border-t border-[#232323] my-6" />
@@ -190,16 +198,25 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div>
-                {project.link && (
+              <div className="flex flex-wrap gap-4 mt-2">
+                {(project.githubLink || project.link) && (
                   <a
-                    href={project.link}
+                    href={project.githubLink || project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#a259f7] hover:bg-[#8e9c78] text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md focus:outline-none hover:-translate-y-0.5 mt-2"
+                    className="inline-flex items-center gap-2 bg-[#a259f7] hover:bg-[#8e9c78] text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md focus:outline-none hover:-translate-y-0.5"
                   >
-                    <span className="material-icons text-base">code</span> View
-                    Code
+                    <span className="material-icons text-base">code</span> View Code
+                  </a>
+                )}
+                {project.liveLink && (
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-transparent border-2 border-[#a259f7] hover:bg-[#a259f7] hover:text-white text-[#a259f7] font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md focus:outline-none hover:-translate-y-0.5"
+                  >
+                    <span className="material-icons text-base">open_in_new</span> Live Demo
                   </a>
                 )}
               </div>
